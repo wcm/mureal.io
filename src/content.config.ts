@@ -30,4 +30,13 @@ const products = defineCollection({
   })
 });
 
-export const collections = { products };
+const legal = defineCollection({
+  loader: glob({ pattern: '*.md', base: './descriptions/legal' }),
+  schema: z.object({
+    slug: z.enum(['terms', 'privacy']),
+    title: z.string(),
+    effectiveDate: z.string()
+  })
+});
+
+export const collections = { products, legal };

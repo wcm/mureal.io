@@ -1,0 +1,40 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import TopNav from "./TopNav.astro";
+import SiteFooter from "./SiteFooter.astro";
+
+interface Props {
+	title: string;
+	description: string;
+	canonicalPath: string;
+	breadcrumbLabel: string;
+}
+
+const { title, description, canonicalPath, breadcrumbLabel } = Astro.props;
+---
+
+<MainLayout title={title} description={description} canonicalPath={canonicalPath}>
+	<TopNav currentPath={Astro.url.pathname} />
+
+	<main>
+		<section class="mx-auto max-w-4xl px-6">
+			<nav aria-label="Breadcrumb" class="flex items-center text-base text-zinc-500">
+				<a href="/" class="inline-flex items-center gap-1 rounded-md p-1 transition hover:bg-black/5 hover:text-zinc-700">
+					<img src="/icons/home.svg" alt="Home" class="h-5 w-auto" />
+				</a>
+				<span class="mx-3">&gt;</span>
+				<span>{breadcrumbLabel}</span>
+			</nav>
+		</section>
+
+		<section class="mx-auto my-8 max-w-4xl px-6">
+			<article
+				class="prose prose-zinc max-w-none rounded-2xl border border-black/5 bg-white px-6 py-10 shadow-[0_18px_48px_rgba(24,24,27,0.05)] prose-headings:scroll-mt-24 prose-headings:font-semibold prose-h1:text-4xl prose-h1:tracking-tight prose-h2:mt-10 prose-h2:text-2xl prose-h3:mt-8 prose-h3:text-xl prose-p:leading-8 prose-li:leading-8 prose-a:text-sky-700 md:px-10"
+			>
+				<slot />
+			</article>
+		</section>
+	</main>
+
+	<SiteFooter />
+</MainLayout>
