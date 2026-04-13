@@ -1,0 +1,49 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import TopNav from "../components/TopNav.astro";
+import HeroBanner from "../components/HeroBanner.astro";
+import ProductCard from "../components/ProductCard.astro";
+import AboutSection from "../components/AboutSection.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { getSortedProducts } from "../lib/products";
+
+const products = await getSortedProducts();
+
+const title = "Mureal | From idea to execution";
+const description = "Mureal builds design tools and apps that help teams move from thinking to execution faster.";
+const jsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		name: "Mureal",
+		url: "https://mureal.io",
+		logo: "https://mureal.io/mureal-logo.svg",
+		founder: "Chenmu Wu",
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		name: "Mureal",
+		url: "https://mureal.io",
+		potentialAction: {
+			"@type": "SearchAction",
+			target: "https://mureal.io/?q={search_term_string}",
+			"query-input": "required name=search_term_string",
+		},
+	},
+];
+---
+
+<MainLayout title={title} description={description} canonicalPath="/" jsonLd={jsonLd}>
+	<TopNav currentPath={Astro.url.pathname} />
+	<main>
+		<HeroBanner />
+		<section class="mx-auto mt-14 max-w-4xl px-10">
+			<div class="grid gap-4">
+				{products.map((product) => <ProductCard product={product} />)}
+			</div>
+		</section>
+		<AboutSection />
+	</main>
+	<SiteFooter />
+</MainLayout>

@@ -1,0 +1,19 @@
+---
+import type { Product } from "../lib/products";
+import ProductCard from "./ProductCard.astro";
+
+interface Props {
+	currentSlug: string;
+	products: Product[];
+}
+
+const { currentSlug, products } = Astro.props;
+const others = products.filter((product) => product.data.slug !== currentSlug);
+---
+
+<aside class="border-l border-zinc-200 px-4">
+	<h2 class="text-base text-zinc-500 px-3">Explore More</h2>
+	<div class="mt-4 space-y-3">
+		{others.map((product) => <ProductCard product={product} compact />)}
+	</div>
+</aside>

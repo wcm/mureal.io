@@ -1,0 +1,46 @@
+---
+interface Banner {
+	type: "image" | "youtube";
+	url: string;
+	alt?: string;
+}
+
+const { banners } = Astro.props as { banners: Banner[] };
+
+function getYouTubeEmbedUrl(url: string) {
+	if (url.includes("youtube.com/embed/")) {
+		return url;
+	}
+
+	if (url.includes("youtu.be/")) {
+		const id = url.split("youtu.be/")[1]?.split("?")[0];
+		return id ? `https://www.youtube.com/embed/${id}` : url;
+	}
+
+	const id = url.split("v=")[1]?.split("&")[0];
+	return id ? `https://www.youtube.com/embed/${id}` : url;
+}
+---
+
+<section class="my-5">
+	<div class="mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+		{
+			banners.map((banner, index) => (
+				<article class="min-w-full snap-center overflow-hidden rounded-2xl border border-zinc-200 bg-white">
+					{banner.type === "youtube" ? (
+						<iframe
+							title={`Preview video ${index + 1}`}
+							src={getYouTubeEmbedUrl(banner.url)}
+							loading="lazy"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen
+							class="aspect-video w-full"
+						/>
+					) : (
+						<img src={banner.url} alt={banner.alt ?? "Product preview image"} loading="lazy" class="aspect-video w-full object-cover" />
+					)}
+				</article>
+			))
+		}
+	</div>
+</section>

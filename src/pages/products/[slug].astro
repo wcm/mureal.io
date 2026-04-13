@@ -1,0 +1,82 @@
+---
+import { render } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import TopNav from "../../components/TopNav.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import TagPill from "../../components/TagPill.astro";
+import BannerCarousel from "../../components/BannerCarousel.astro";
+import ExploreMoreSidebar from "../../components/ExploreMoreSidebar.astro";
+import { getSortedProducts } from "../../lib/products";
+
+export async function getStaticPaths() {
+	const products = await getSortedProducts();
+	return products
+		.filter((product) => product.data.type === "details_page")
+		.map((entry) => ({
+			params: { slug: entry.data.slug },
+			props: { entry, allProducts: products },
+		}));
+}
+
+const { entry, allProducts } = Astro.props;
+const { Content } = await render(entry);
+
+const pageTitle = entry.data.seoTitle ?? `${entry.data.title} | Mureal`;
+const pageDescription = entry.data.seoDescription ?? entry.data.subtitle;
+const canonicalPath = `/products/${entry.data.slug}/`;
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	name: entry.data.title,
+	description: pageDescription,
+	applicationCategory: entry.data.category,
+	operatingSystem: "Web",
+	offers: {
+		"@type": "Offer",
+		price: "0",
+		priceCurrency: "USD",
+	},
+	publisher: {
+		"@type": "Organization",
+		name: "Mureal",
+		url: "https://mureal.io",
+	},
+	url: new URL(canonicalPath, Astro.site).toString(),
+};
+---
+
+<MainLayout title={pageTitle} description={pageDescription} canonicalPath={canonicalPath} ogType="article" jsonLd={jsonLd}>
+	<TopNav currentPath={Astro.url.pathname} />
+	<main class="mx-auto max-w-7xl px-6 pb-16">
+		<div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px]">
+			<article class="min-w-0">
+				<nav aria-label="Breadcrumb" class="flex items-center text-base text-zinc-500">
+					<a href="/" class="inline-flex items-center gap-1 transition hover:text-zinc-700 hover:bg-black/5 rounded-md p-1">
+						<img src="/icons/home.svg" alt="Home" class="h-5 w-auto" />
+					</a>
+					<span class="mx-3">&gt;</span>
+					<span>{entry.data.title}</span>
+				</nav>
+
+				<BannerCarousel banners={entry.data.banners} />
+
+				<h1 class="mt-8 text-4xl font-semibold tracking-tight">{entry.data.title}</h1>
+
+				<div class="mt-6 flex flex-wrap gap-2">
+					{entry.data.tags.map((tag) => <TagPill style={tag.style} text={tag.text} size="large" />)}
+				</div>
+
+				<hr class="my-8 border-zinc-200" />
+
+				<section class="prose prose-zinc max-w-none prose-p:my-2 prose-a:text-sky-700">
+					<Content />
+				</section>
+			</article>
+
+			<div class="lg:sticky lg:top-28 lg:h-fit">
+				<ExploreMoreSidebar currentSlug={entry.data.slug} products={allProducts} />
+			</div>
+		</div>
+	</main>
+	<SiteFooter />
+</MainLayout>

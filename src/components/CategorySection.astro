@@ -1,0 +1,17 @@
+---
+import type { Product } from "../lib/products";
+import ProductCard from "./ProductCard.astro";
+
+interface Props {
+	title: string;
+	items: Product[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="mt-5">
+	<div class="grid gap-3">
+		{items.map((product) => <ProductCard product={product} />)}
+	</div>
+</section>
