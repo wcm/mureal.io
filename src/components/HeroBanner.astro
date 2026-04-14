@@ -1,86 +1,211 @@
-<section class="mx-auto max-w-4xl px-6 pt-5">
-	<div class="hero-shader relative overflow-hidden rounded-xl px-6 py-28 text-center md:px-16">
-		<div class="hero-shader__base"></div>
-		<div class="hero-shader__aurora"></div>
-		<div class="hero-shader__particles"></div>
-
-		<div class="relative z-10">
-			<h1 class="font-brand text-5xl leading-tight text-white">From idea to execution</h1>
-			<p class="mx-auto mt-4 max-w-2xl text-base text-white/90 md:text-lg">We build tools to help you think, design, and build faster.</p>
+<section class="mx-auto max-w-3xl px-8 pt-12">
+	<div class="hero-shader relative overflow-hidden rounded-xl text-center">
+		<div class="hero-glass relative z-10 mx-auto rounded-xl" data-glass-element>
+			<div class="hero-glass__backdrop" data-glass-backdrop></div>
+			<div class="hero-glass__edge"></div>
+			<div class="relative z-10 px-8 py-24">
+				<h1 class="font-brand text-5xl leading-tight text-white">From idea to reality</h1>
+				<p class="mt-4 text-base text-white/90 md:text-lg">We build tools to help you think, design, and build faster.</p>
+			</div>
 		</div>
 	</div>
 </section>
 
 <style>
 	.hero-shader {
-		background: #09090b;
+		background: url("/bg/bg.png") center / 180% no-repeat;
+		background-position: center 50%;
+		animation: hero-bg-float 60s ease-in-out infinite;
+	}
+
+	@keyframes hero-bg-float {
+		0% {
+			background-position: 50% 0%;
+		}
+		12.5% {
+			background-position: 85% 15%;
+		}
+		25% {
+			background-position: 100% 50%;
+		}
+		37.5% {
+			background-position: 85% 85%;
+		}
+		50% {
+			background-position: 50% 100%;
+		}
+		62.5% {
+			background-position: 15% 85%;
+		}
+		75% {
+			background-position: 0% 50%;
+		}
+		87.5% {
+			background-position: 15% 15%;
+		}
+		100% {
+			background-position: 50% 0%;
+		}
+	}
+
+	.hero-glass {
+		position: relative;
+		overflow: hidden;
 		isolation: isolate;
 	}
 
-	.hero-shader__base,
-	.hero-shader__aurora,
-	.hero-shader__particles {
+	/* Backdrop layer keeps text sharp while creating refraction. */
+	.hero-glass__backdrop {
 		position: absolute;
-		inset: -20%;
+		inset: 0;
+		z-index: 1;
+		border-radius: inherit;
+		backdrop-filter: blur(1px) blur(2px) brightness(1.1) saturate(1.5);
+		-webkit-backdrop-filter: blur(1px) blur(2px) brightness(1.1) saturate(1.5);
+		background: rgba(255, 255, 255, 0.1);
+		box-shadow: inset 0 0 4px 0 white;
+	}
+
+	/* Rim highlights define glass thickness. */
+	.hero-glass__edge {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		border-radius: inherit;
+		box-shadow:
+			inset 0 -8px 16px rgba(255, 255, 255, 0.3),
+			inset 0 8px 8px rgba(255, 255, 255, 0.2);
 		pointer-events: none;
 	}
 
-	.hero-shader__base {
+	/* Soft directional sheen to avoid flat frost look. */
+	.hero-glass__sheen {
+		position: absolute;
+		inset: 1px;
+		z-index: 3;
+		border-radius: inherit;
 		background:
-			radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.65), transparent 42%), radial-gradient(circle at 85% 80%, rgba(244, 114, 182, 0.6), transparent 44%),
-			radial-gradient(circle at 52% 52%, rgba(139, 92, 246, 0.55), transparent 48%), linear-gradient(130deg, #0f172a 0%, #111827 45%, #1f1147 100%);
-		filter: saturate(125%) contrast(112%);
-		animation: shaderDrift 16s ease-in-out infinite alternate;
-	}
-
-	.hero-shader__aurora {
-		background: conic-gradient(from 180deg at 35% 40%, rgba(45, 212, 191, 0.25), rgba(59, 130, 246, 0.2), rgba(244, 114, 182, 0.25), rgba(167, 139, 250, 0.25), rgba(45, 212, 191, 0.25));
-		mix-blend-mode: screen;
-		filter: blur(42px);
-		animation: shaderSpin 22s linear infinite;
-	}
-
-	.hero-shader__particles {
-		inset: 0;
-		background-image: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0 1.3px, transparent 1.5px), radial-gradient(circle, rgba(255, 255, 255, 0.55) 0 1.1px, transparent 1.4px);
-		background-size:
-			130px 130px,
-			180px 180px;
-		background-position:
-			0 0,
-			50px 70px;
-		opacity: 0.22;
-		animation: particlesFloat 14s linear infinite;
-	}
-
-	@keyframes shaderDrift {
-		0% {
-			transform: translate3d(-2%, -1%, 0) scale(1);
-		}
-		100% {
-			transform: translate3d(2%, 1%, 0) scale(1.08);
-		}
-	}
-
-	@keyframes shaderSpin {
-		0% {
-			transform: rotate(0deg) scale(1);
-		}
-		100% {
-			transform: rotate(360deg) scale(1.06);
-		}
-	}
-
-	@keyframes particlesFloat {
-		0% {
-			background-position:
-				0 0,
-				50px 70px;
-		}
-		100% {
-			background-position:
-				130px 130px,
-				230px 250px;
-		}
+			radial-gradient(85% 55% at 14% 0%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.08) 48%, transparent 78%),
+			radial-gradient(110% 80% at 88% 100%, rgba(255, 255, 255, 0.18) 0%, transparent 62%);
+		pointer-events: none;
 	}
 </style>
+
+<script>
+	const glass = document.querySelector("[data-glass-element]");
+	const backdrop = document.querySelector("[data-glass-backdrop]");
+
+	// @ts-ignore - inline Astro script lacks local type declarations
+	const getDisplacementMap = function (...args) {
+		const options = args[0] || {};
+		const { height, width, radius, depth } = options;
+		return (
+			"data:image/svg+xml;utf8," +
+			encodeURIComponent(`<svg height="${height}" width="${width}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .mix { mix-blend-mode: screen; }
+    </style>
+    <defs>
+        <linearGradient id="Y" x1="0" x2="0" y1="${Math.ceil((radius / height) * 15)}%" y2="${Math.floor(100 - (radius / height) * 15)}%">
+            <stop offset="0%" stop-color="#0F0" />
+            <stop offset="100%" stop-color="#000" />
+        </linearGradient>
+        <linearGradient id="X" x1="${Math.ceil((radius / width) * 15)}%" x2="${Math.floor(100 - (radius / width) * 15)}%" y1="0" y2="0">
+            <stop offset="0%" stop-color="#F00" />
+            <stop offset="100%" stop-color="#000" />
+        </linearGradient>
+    </defs>
+    <rect x="0" y="0" height="${height}" width="${width}" fill="#808080" />
+    <g filter="blur(2px)">
+      <rect x="0" y="0" height="${height}" width="${width}" fill="#000080" />
+      <rect x="0" y="0" height="${height}" width="${width}" fill="url(#Y)" class="mix" />
+      <rect x="0" y="0" height="${height}" width="${width}" fill="url(#X)" class="mix" />
+      <rect
+          x="${depth}"
+          y="${depth}"
+          height="${height - 2 * depth}"
+          width="${width - 2 * depth}"
+          fill="#808080"
+          rx="${radius}"
+          ry="${radius}"
+          filter="blur(${depth}px)"
+      />
+    </g>
+</svg>`)
+		);
+	};
+
+	// @ts-ignore - inline Astro script lacks local type declarations
+	const getDisplacementFilter = function (...args) {
+		const options = args[0] || {};
+		const { height, width, radius, depth, strength = 100, chromaticAberration = 0 } = options;
+		return (
+			"data:image/svg+xml;utf8," +
+			encodeURIComponent(`<svg height="${height}" width="${width}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="displace" color-interpolation-filters="sRGB">
+            <feImage x="0" y="0" height="${height}" width="${width}" href="${getDisplacementMap({
+				height,
+				width,
+				radius,
+				depth,
+			})}" result="displacementMap" />
+            <feDisplacementMap transform-origin="center" in="SourceGraphic" in2="displacementMap" scale="${strength + chromaticAberration * 2}" xChannelSelector="R" yChannelSelector="G" />
+            <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 1 0"
+            result="displacedR"
+                    />
+            <feDisplacementMap in="SourceGraphic" in2="displacementMap" scale="${strength + chromaticAberration}" xChannelSelector="R" yChannelSelector="G" />
+            <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0
+                    0 1 0 0 0
+                    0 0 0 0 0
+                    0 0 0 1 0"
+            result="displacedG"
+                    />
+            <feDisplacementMap in="SourceGraphic" in2="displacementMap" scale="${strength}" xChannelSelector="R" yChannelSelector="G" />
+            <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 1 0 0
+                    0 0 0 1 0"
+            result="displacedB"
+                    />
+              <feBlend in="displacedR" in2="displacedG" mode="screen"/>
+              <feBlend in2="displacedB" mode="screen"/>
+        </filter>
+    </defs>
+</svg>`) +
+			"#displace"
+		);
+	};
+
+	const applyGlassDistortion = () => {
+		if (!(glass instanceof HTMLElement) || !(backdrop instanceof HTMLElement)) return;
+
+		const rect = glass.getBoundingClientRect();
+		const height = Math.max(1, Math.round(rect.height));
+		const width = Math.max(1, Math.round(rect.width));
+		const radius = Math.round(parseFloat(getComputedStyle(glass).borderTopLeftRadius) || 20);
+		const depth = Math.max(8, Math.round(Math.min(width, height) * 0.08));
+		const blur = 2;
+		const filter = getDisplacementFilter({ height, width, radius, depth, strength: 100, chromaticAberration: 0 });
+		const backdropFilter = `blur(${blur / 2}px) url('${filter}') blur(${blur}px) brightness(1.1) saturate(1.5)`;
+
+		backdrop.style.backdropFilter = backdropFilter;
+		backdrop.style.setProperty("-webkit-backdrop-filter", backdropFilter);
+	};
+
+	applyGlassDistortion();
+
+	if (glass instanceof HTMLElement) {
+		const observer = new ResizeObserver(applyGlassDistortion);
+		observer.observe(glass);
+	}
+</script>
