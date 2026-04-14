@@ -29,7 +29,7 @@ Build output is generated in `dist/`.
 
 ## Content management
 
-- Product entries are authored in `descriptions/*.md`.
+- Product entries are authored in `content/products/*.md`.
 - Required frontmatter fields are validated by `src/content.config.ts`.
 - `type: details_page` generates `/products/[slug]/`.
 - `type: external_link` renders on home and sidebar but opens in a new tab.

@@ -6,7 +6,7 @@ subtitle: Plan and execute your goals with clarity.
 category: Apps
 order: 1
 type: external_link
-externalUrl: https://planex.app
+tryNowUrl: https://planex.app
 seoTitle: Planex | Goal Planning App
 seoDescription: Planex helps individuals and teams plan goals clearly and execute with focused daily progress.
 tags:
@@ -18,16 +18,16 @@ banners:
       alt: Goal planning app interface
 ---
 
-# Planex
+## Overview
 
 Planex is an app for turning goals into clear action steps. It helps you organize priorities, break work into daily tasks, and keep momentum from planning to execution.
 
-## Why Planex
+## Why Planex: Key Benefits
 
 - Clarify outcomes before you commit effort.
 - Break goals into practical execution steps.
 - Track progress and keep focus on the next action.
 
-## Availability
+## Availability: Current Platform
 
 Planex is currently available as an external app experience.

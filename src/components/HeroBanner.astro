@@ -1,4 +1,4 @@
-<section class="mx-auto max-w-3xl px-8 pt-12">
+<section class="mx-auto max-w-3xl pt-8">
 	<div class="hero-shader relative overflow-hidden rounded-xl text-center">
 		<div class="hero-glass relative z-10 mx-auto rounded-xl" data-glass-element>
 			<div class="hero-glass__backdrop" data-glass-backdrop></div>
@@ -193,7 +193,7 @@
 		const height = Math.max(1, Math.round(rect.height));
 		const width = Math.max(1, Math.round(rect.width));
 		const radius = Math.round(parseFloat(getComputedStyle(glass).borderTopLeftRadius) || 20);
-		const depth = Math.max(8, Math.round(Math.min(width, height) * 0.08));
+		const depth = Math.max(8, Math.round(Math.min(width, height) * 0.1));
 		const blur = 2;
 		const filter = getDisplacementFilter({ height, width, radius, depth, strength: 100, chromaticAberration: 0 });
 		const backdropFilter = `blur(${blur / 2}px) url('${filter}') blur(${blur}px) brightness(1.1) saturate(1.5)`;

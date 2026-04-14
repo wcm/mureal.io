@@ -6,6 +6,7 @@ subtitle: Draw smooth connectors that update automatically.
 category: Design Tools
 order: 4
 type: details_page
+tryNowUrl: https://example.com/try-now/arrow-connector
 seoTitle: Arrow Connector | Figma Auto Connector Plugin
 seoDescription: Draw smooth Figma connectors that auto-track positions, preserve styles, and speed up flowchart and UI flow work.
 tags:
@@ -27,25 +28,25 @@ Draw smooth and beautiful connectors in seconds. Arrow Connector auto-tracks des
 
 ## Features Overview
 
-### 1) One-Click Linking
+### 1. One-Click Linking
 
 - Select two elements and click **Link** to draw an arrow.
 - Choose binding positions with one click for cleaner flow direction.
 - Build user-flow diagrams quickly without manual path adjustment.
 
-### 2) Auto-Tracking Connectors
+### 2. Auto-Tracking Connectors
 
 - Keep arrows attached when layers move or layouts shift.
 - Maintain readability during fast iteration on complex frames.
 - Reduce maintenance time on wireframes and process maps.
 
-### 3) Reusable Styling Control
+### 3. Reusable Styling Control
 
 - Preserve your preferred arrow style by default.
 - Select one or many arrows to update styles in bulk.
 - Keep visual consistency across large design files.
 
-### 4) Focus Mode for Busy Files
+### 4. Focus Mode for Busy Files
 
 - Lock arrows when you want to avoid accidental edits.
 - Unlock when it is time to refine flows.
@@ -53,21 +54,21 @@ Draw smooth and beautiful connectors in seconds. Arrow Connector auto-tracks des
 
 ## Workflow Tips
 
-### Define Main Paths First
+### 1. Define Main Paths First
 
 Connect the primary user journey before secondary branches.
 
 Example:
 `Home > Product > Cart > Checkout > Confirmation`
 
-### Standardize Arrow Styles Early
+### 2. Standardize Arrow Styles Early
 
 Choose a default connector style once and reuse it everywhere.
 
 Example:
 `Primary flow uses 2px solid, secondary flow uses 1px dashed.`
 
-### Lock During Layout Changes
+### 3. Lock During Layout Changes
 
 Lock arrows before major frame rearrangement to avoid distractions.
 

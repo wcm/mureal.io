@@ -36,9 +36,9 @@ const jsonLd = [
 
 <MainLayout title={title} description={description} canonicalPath="/" jsonLd={jsonLd}>
 	<TopNav currentPath={Astro.url.pathname} />
-	<main>
+	<main class="px-4 sm:px-8">
 		<HeroBanner />
-		<section class="mx-auto mt-14 max-w-3xl px-8">
+		<section class="mx-auto mt-10 max-w-3xl">
 			<div class="grid gap-4">
 				{products.map((product) => <ProductCard product={product} />)}
 			</div>

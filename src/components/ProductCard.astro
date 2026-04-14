@@ -9,7 +9,7 @@ interface Props {
 
 const { product, compact = false } = Astro.props;
 
-const href = product.data.type === "external_link" ? (product.data.externalUrl ?? "#") : `/products/${product.data.slug}/`;
+const href = product.data.type === "external_link" ? product.data.tryNowUrl : `/products/${product.data.slug}/`;
 const isExternal = product.data.type === "external_link";
 ---
 
@@ -17,11 +17,16 @@ const isExternal = product.data.type === "external_link";
 	href={href}
 	target={isExternal ? "_blank" : undefined}
 	rel={isExternal ? "noreferrer noopener" : undefined}
-	class:list={["group block rounded-2xl transition hover:bg-black/4", compact ? "p-3" : "p-6"]}
+	class:list={["group block rounded-2xl transition hover:bg-black/4", compact ? "p-3" : "p-3 sm:p-6"]}
 >
-	<div class:list={["flex", compact ? "gap-3 items-start" : "gap-8 items-center"]}>
-		<div class:list={["flex shrink-0 items-center justify-center rounded-full border border-zinc-100 bg-white overflow-hidden", compact ? "h-10 w-10 shadow-md" : "h-20 w-20 shadow-xl"]}>
-			<img src={product.data.logo ?? "/product-logos/placeholder-logo.svg"} alt="" class={compact ? "h-7 w-7" : "h-12 w-12"} />
+	<div class:list={["flex", compact ? "gap-3 items-start" : "gap-4 sm:gap-8 items-center"]}>
+		<div
+			class:list={[
+				"flex shrink-0 items-center justify-center rounded-full border border-zinc-100 bg-white overflow-hidden",
+				compact ? "h-10 w-10 shadow-md" : "h-12 w-12 shadow-xl sm:h-20 sm:w-20",
+			]}
+		>
+			<img src={product.data.logo ?? "/product-logos/placeholder-logo.svg"} alt="" class={compact ? "h-7 w-7" : "h-8 w-8 sm:h-12 sm:w-12"} />
 		</div>
 		<div class="min-w-0 flex-1">
 			<div class="flex items-start justify-between gap-3">
@@ -29,7 +34,7 @@ const isExternal = product.data.type === "external_link";
 					<h3 class:list={["font-semibold text-zinc-900", compact ? "text-base" : "text-lg"]}>
 						{product.data.title}
 					</h3>
-					<p class:list={["mt-1 text-zinc-500", compact ? "text-xs" : "text-base"]}>
+					<p class:list={["mt-1 text-zinc-500", compact ? "text-xs" : "text-sm sm:text-base"]}>
 						{product.data.subtitle}
 					</p>
 				</div>
