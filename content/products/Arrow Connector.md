@@ -18,10 +18,8 @@ tags:
       text: 2.1k
 banners:
     - type: image
-      url: https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80
-      alt: Connected flow diagram with arrows
-    - type: youtube
-      url: https://www.youtube.com/watch?v=jNQXAC9IVRw
+      url: /banners/arrow-connector-1.png
+      alt: Arrow Connector preview
 ---
 
 Draw smooth and beautiful connectors in seconds. Arrow Connector auto-tracks design element positions, so your flows stay accurate while you edit.

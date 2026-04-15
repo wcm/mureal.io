@@ -18,20 +18,26 @@ tags:
       text: 3.1k
 banners:
     - type: image
-      url: https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80
-      alt: Design token management dashboard mockup
-    - type: youtube
-      url: https://www.youtube.com/watch?v=ysz5S6PUM-U
+      url: /banners/svo-1.png
+      alt: Styles & Variables Organizer preview
+    - type: image
+      url: /banners/svo-2.png
+      alt: Styles & Variables Organizer preview
+    - type: image
+      url: /banners/svo-3.png
+      alt: Styles & Variables Organizer preview
+    - type: image
+      url: /banners/svo-4.png
+      alt: Styles & Variables Organizer preview
 ---
 
 Styles and Variables Organizer helps teams manage design systems and design tokens consistently across new work and legacy files.
 
-## Empower Your Design System Workflows
+## Design System Management at Scale
 
-- Design system management at scale.
 - Daily design token implementation in active files.
 - Legacy design file cleanup and migration.
-- Applying newly added variables and styles to the entire file quickly.
+- Applying newly added variables and styles to entire files quickly.
 
 ## Features
 
@@ -52,7 +58,7 @@ Styles and Variables Organizer helps teams manage design systems and design toke
 - Automatically merge all available styles and variables with a single click.
 - Keep your design system and token library clean over time.
 
-## Examples of What You Can Do: Practical Token Operations
+## Practical Token Operation Examples
 
 - Link all matching colors in a file to a color variable.
 - Link all corner radius values in a file to number variables.

@@ -19,13 +19,13 @@ tags:
 banners:
     - type: image
       url: /banners/wireframe-designer-1.png
-      alt: AI wireframe canvas preview
+      alt: Wireframe Designer preview
     - type: image
       url: /banners/wireframe-designer-2.png
-      alt: AI wireframe canvas preview
+      alt: Wireframe Designer preview
     - type: image
       url: /banners/wireframe-designer-3.png
-      alt: AI wireframe canvas preview
+      alt: Wireframe Designer preview
     - type: youtube
       url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ---

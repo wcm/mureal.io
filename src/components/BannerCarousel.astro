@@ -23,10 +23,16 @@ function getYouTubeEmbedUrl(url: string) {
 ---
 
 <section class="my-5">
-	<div class="mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+	<div
+		data-banner-carousel
+		class="mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+	>
 		{
 			banners.map((banner, index) => (
-				<article class="w-4/5 min-w-[90%] shrink-0 snap-center overflow-hidden rounded-2xl border border-zinc-200 bg-white">
+				<article
+					data-slide
+					class="w-4/5 min-w-[90%] shrink-0 snap-center overflow-hidden rounded-2xl border border-zinc-200 bg-white"
+				>
 					{banner.type === "youtube" ? (
 						<iframe
 							title={`Preview video ${index + 1}`}
@@ -37,10 +43,163 @@ function getYouTubeEmbedUrl(url: string) {
 							class="aspect-video w-full"
 						/>
 					) : (
-						<img src={banner.url} alt={banner.alt ?? "Product preview image"} loading="lazy" class="aspect-video w-full object-cover" />
+						<button
+							type="button"
+							class="block w-full cursor-pointer"
+							data-preview-trigger
+							data-preview-src={banner.url}
+							data-preview-alt={banner.alt ?? "Product preview image"}
+							aria-label={`Open image preview ${index + 1}`}
+						>
+							<img
+								src={banner.url}
+								alt={banner.alt ?? "Product preview image"}
+								loading="lazy"
+								class="aspect-video w-full object-cover"
+							/>
+						</button>
 					)}
 				</article>
 			))
 		}
 	</div>
+
+	{
+		banners.length > 1 && (
+			<div class="mt-4 flex items-center justify-center gap-2" data-pagination>
+				{banners.map((_, index) => (
+					<button
+						type="button"
+						class:list={[
+							"h-2.5 cursor-pointer rounded-full transition",
+							index === 0 ? "w-6 bg-zinc-700" : "w-2.5 bg-zinc-300 hover:bg-zinc-400"
+						]}
+						aria-label={`Go to slide ${index + 1}`}
+						data-page-dot
+						data-page-index={index}
+					/>
+				))}
+			</div>
+		)
+	}
+
+	<div
+		data-preview-modal
+		class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-6"
+		role="dialog"
+		aria-modal="true"
+		aria-label="Image preview"
+	>
+		<button
+			type="button"
+			class="absolute right-6 top-6 rounded-full bg-white/10 px-3 py-1 text-sm text-white transition hover:bg-white/20"
+			aria-label="Close preview"
+			data-preview-close
+		>
+			Close
+		</button>
+		<img
+			data-preview-image
+			src=""
+			alt=""
+			class="max-h-[88vh] max-w-[92vw] rounded-xl object-contain shadow-2xl"
+		/>
+	</div>
 </section>
+
+<script>
+	const sections = document.querySelectorAll<HTMLElement>("[data-banner-carousel]");
+
+	for (const carousel of sections) {
+		const slideContainer = carousel;
+		const slides = [...carousel.querySelectorAll<HTMLElement>("[data-slide]")];
+		const pagination = carousel.parentElement?.querySelector("[data-pagination]");
+		const dots = pagination ? [...pagination.querySelectorAll<HTMLButtonElement>("[data-page-dot]")] : [];
+		const modal = carousel.parentElement?.querySelector("[data-preview-modal]");
+		const modalImage = modal?.querySelector<HTMLImageElement>("[data-preview-image]");
+		const closeButton = modal?.querySelector("[data-preview-close]");
+		const previewTriggers = [...carousel.querySelectorAll<HTMLButtonElement>("[data-preview-trigger]")];
+
+		let activeIndex = 0;
+
+		const setActiveDot = (index: number) => {
+			dots.forEach((dot, dotIndex) => {
+				const isActive = dotIndex === index;
+				dot.classList.toggle("w-6", isActive);
+				dot.classList.toggle("bg-zinc-700", isActive);
+				dot.classList.toggle("w-2.5", !isActive);
+				dot.classList.toggle("bg-zinc-300", !isActive);
+				dot.classList.toggle("hover:bg-zinc-400", !isActive);
+				dot.setAttribute("aria-current", isActive ? "true" : "false");
+			});
+		};
+
+		const syncActiveIndex = () => {
+			if (!slides.length) return;
+			const containerCenter = slideContainer.scrollLeft + slideContainer.clientWidth / 2;
+			let closestIndex = 0;
+			let closestDistance = Number.POSITIVE_INFINITY;
+
+			slides.forEach((slide, index) => {
+				const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+				const distance = Math.abs(slideCenter - containerCenter);
+				if (distance < closestDistance) {
+					closestDistance = distance;
+					closestIndex = index;
+				}
+			});
+
+			if (closestIndex !== activeIndex) {
+				activeIndex = closestIndex;
+				setActiveDot(activeIndex);
+			}
+		};
+
+		dots.forEach((dot) => {
+			dot.addEventListener("click", () => {
+				const index = Number(dot.getAttribute("data-page-index"));
+				if (Number.isNaN(index) || !slides[index]) return;
+				slides[index].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+			});
+		});
+
+		previewTriggers.forEach((trigger) => {
+			trigger.addEventListener("click", () => {
+				if (!modal || !modalImage) return;
+				const src = trigger.getAttribute("data-preview-src");
+				const alt = trigger.getAttribute("data-preview-alt") ?? "Product preview image";
+				if (!src) return;
+				modalImage.setAttribute("src", src);
+				modalImage.setAttribute("alt", alt);
+				modal.classList.remove("hidden");
+				modal.classList.add("flex");
+				document.body.classList.add("overflow-hidden");
+			});
+		});
+
+		const closePreview = () => {
+			if (!modal || !modalImage) return;
+			modal.classList.add("hidden");
+			modal.classList.remove("flex");
+			modalImage.setAttribute("src", "");
+			document.body.classList.remove("overflow-hidden");
+		};
+
+		closeButton?.addEventListener("click", closePreview);
+
+		modal?.addEventListener("click", (event) => {
+			if (event.target === modal) {
+				closePreview();
+			}
+		});
+
+		window.addEventListener("keydown", (event) => {
+			if (event.key === "Escape") {
+				closePreview();
+			}
+		});
+
+		slideContainer.addEventListener("scroll", syncActiveIndex, { passive: true });
+		setActiveDot(activeIndex);
+	}
+</script>

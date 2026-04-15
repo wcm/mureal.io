@@ -14,10 +14,11 @@ tags:
       text: Figma Plugin
 banners:
     - type: image
-      url: https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1600&q=80
+      url: /banners/pagefolio-1.png
       alt: Website portfolio page preview
-    - type: youtube
-      url: https://www.youtube.com/watch?v=M7lc1UVf-VE
+    - type: image
+      url: /banners/pagefolio-2.png
+      alt: Website portfolio page preview
 ---
 
 Get your custom subdomain and publish Figma designs with one click. Pagefolio helps designers turn visual work into real websites faster, without rebuilding everything from scratch.
