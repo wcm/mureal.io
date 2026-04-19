@@ -15,73 +15,31 @@ tags:
 banners:
     - type: image
       url: /banners/pagefolio-1.png
-      alt: Website portfolio page preview
+      alt: Pagefolio preview
     - type: image
       url: /banners/pagefolio-2.png
-      alt: Website portfolio page preview
+      alt: Pagefolio preview
 ---
 
-Get your custom subdomain and publish Figma designs with one click. Pagefolio helps designers turn visual work into real websites faster, without rebuilding everything from scratch.
+Publish your portfolio website from Figma with one click and a customised subdomain.
 
-## Features Overview
+## Why Pagefolio
 
-### 1. One-Click Publish from Figma
+- Launch your site quickly, without rebuilding in code.
+- Manage pages easily across files and projects.
+- Adjust responsiveness right from your design file.
 
-- Publish selected Figma designs directly to the web.
-- Go from mockup to live portfolio page in minutes.
-- Avoid repetitive export and handoff loops.
+## Key Features
 
-### 2. Multi-Page and Multi-File Support
+- One-click publish from Figma to a live portfolio website.
+- Get a custom subdomain for your published site.
+- Keep multi-page structure organized and easy to maintain.
+- Fine-tune responsive behavior without leaving your design workflow.
 
-- Manage multiple pages from one publishing workflow.
-- Publish across pages and files while keeping navigation coherent.
-- Scale from a single landing page to a full portfolio site.
+## Playground File
 
-### 3. Responsive Controls in Design Workflow
+Check out the playground file here: [Playground File](https://www.figma.com/design/pWgES6BxLP0G9SeWcc6iCw/Pagefolio-Playground?node-id=0-1&p=f&t=IGIrZOHg6lvXehvS-0)
 
-- Adjust responsiveness directly from your design file.
-- Validate desktop and mobile behavior before publishing.
-- Keep layout intent consistent between canvas and live site.
+## Issues or Feature Requests
 
-### 4. Domain and Sharing Ready
-
-- Launch on a custom subdomain for brand consistency.
-- Share live links with clients, hiring teams, and collaborators.
-- Iterate and republish quickly as projects evolve.
-
-## Workflow Tips
-
-### 1. Prepare Content Blocks First
-
-Use reusable sections for hero, projects, and contact areas.
-
-Example:
-`Hero > Case Studies > Testimonials > Contact`
-
-### 2. Publish in Small Iterations
-
-Ship one section, validate, then expand.
-
-Example:
-`Publish homepage first, then add case-study pages in batch two.`
-
-### 3. Test Responsiveness Before Final Share
-
-Check mobile spacing and text hierarchy before sending links.
-
-Example:
-`Review portfolio cards at 390px width before final publish.`
-
-## Usage & Plan
-
-- Ideal for creators publishing design portfolios and lightweight websites.
-- Best suited for rapid launch cycles with frequent updates.
-
-## Support
-
-- X/Twitter: [@WCMuu](https://x.com/WCMuu)
-- Email: [contact@describe.design](mailto:contact@describe.design)
-
-## Subscription Notes
-
-Subscription and billing are managed by the Figma Marketplace.
+Email: [contact@mureal.io](mailto:contact@describe.design)
