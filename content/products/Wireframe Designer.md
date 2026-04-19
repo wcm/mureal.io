@@ -2,13 +2,13 @@
 slug: wireframe-designer
 logo: /product-logos/wireframe-designer.svg
 title: Wireframe Designer
-subtitle: Effortlessly generate and iterate wireframe designs using AI.
+subtitle: The fastest way to brainstorm, iterate, and evolve wireframes with AI.
 category: Design Tools
 order: 3
 type: details_page
 tryNowUrl: https://www.figma.com/community/plugin/1228969298040149016/wireframe-designer
 seoTitle: Wireframe Designer | AI Figma Wireframe Plugin
-seoDescription: Generate mobile and desktop wireframes in Figma with AI prompts, mindmaps, and fast iteration workflows.
+seoDescription: Instantly generate and refine mobile, desktop, and mindmap outputs in Figma for lightning-fast brainstorming and iteration.
 tags:
     - style: figma
       text: Figma Plugin
@@ -30,34 +30,31 @@ banners:
       url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ---
 
-Unleash your design creativity and productivity with ease. Describe your vision, then design with one click.
+Instantly generate and refine mobile, desktop, and mindmap outputs in Figma for lightning-fast brainstorming and iteration.
 
 ## Features Overview
 
-### 1. Mobile
+### 1. Fast Iteration and Brainstorming
 
-- Generate complete mobile wireframes from a short prompt.
-- Use flexible, reusable sections for quick drafting and iteration.
-- Great for app flows and compact, content-rich layouts.
+- Turn rough ideas into visual directions instantly.
+- Rapidly test multiple concepts before committing to one path.
+- Perfect for fast brainstorm sessions, alignment meetings, and early product exploration.
 
-### 2. Desktop
+### 2. Generate Designs in Multiple Formats
 
-- Generate full desktop page layouts with broader structure and hierarchy.
-- Works well for websites, dashboard concepts, and multi-section pages.
-- Reuse the same prompt-driven workflow as mobile mode.
+- **Mobile:** Quickly generate app-first layouts with focused hierarchy and compact flows.  
+  Example: `Create a food delivery app home page with search, categories, and promo cards.`
+- **Desktop:** Build rich multi-section pages for dashboards, marketing sites, or web apps in seconds.  
+  Example: `Design a SaaS analytics dashboard with KPI cards, charts, and activity feed.`
+- **Mindmap:** Expand ideas into clear node-based structures for planning and exploration.  
+  Example: `Map onboarding flow for a fintech app from signup to first successful transfer.`
 
-### 3. Mindmap
+### 3. Update Designs Instantly
 
-- Expand ideas into multi-level node trees directly on canvas.
-- Create a root idea, then expand selected nodes further.
-- Support iterative exploration, relayout, and branch growth.
-
-### 4. Update
-
-- Select a **mindmap node** and use **Expand Further** to grow that branch.
-- Select a **page** and provide feedback to update the full design direction.
-- Select a **section/component** and provide focused instructions for that area.
-- Iterate quickly until the result matches your intent.
+- Select any **full frame** to shift overall direction with one instruction.
+- Select any **section of design** to refine specific details for that section or component.
+- Select any **mindmap node** to expand that branch further and explore deeper into the idea.
+- Make continuous micro-iterations until the concept feels right.
 
 ## Workflow Tips
 
