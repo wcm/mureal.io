@@ -6,7 +6,7 @@ subtitle: Publish portfolio designs as real websites with custom domains.
 category: Design Tools
 order: 5
 type: details_page
-tryNowUrl: https://example.com/try-now/pagefolio
+tryNowUrl: https://www.figma.com/community/plugin/1506867388723745319/pagefolio
 seoTitle: Pagefolio | Publish Figma to Website
 seoDescription: Publish Figma designs as responsive websites, manage multi-page structures, and launch portfolios with custom domains.
 tags:

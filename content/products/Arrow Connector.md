@@ -6,7 +6,7 @@ subtitle: Draw smooth connectors that update automatically.
 category: Design Tools
 order: 4
 type: details_page
-tryNowUrl: https://example.com/try-now/arrow-connector
+tryNowUrl: https://www.figma.com/community/plugin/751007211632768205/arrow-connector
 seoTitle: Arrow Connector | Figma Auto Connector Plugin
 seoDescription: Draw smooth Figma connectors that auto-track positions, preserve styles, and speed up flowchart and UI flow work.
 tags:

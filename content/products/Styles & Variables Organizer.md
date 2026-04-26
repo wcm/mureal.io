@@ -6,7 +6,7 @@ subtitle: Apply styles and variables to all your designs with one click.
 category: Design Tools
 order: 2
 type: details_page
-tryNowUrl: https://example.com/try-now/styles-variables-organizer
+tryNowUrl: https://www.figma.com/community/plugin/816627069580757929/styles-variables-organizer
 seoTitle: Styles and Variables Organizer | Figma Design Tokens Plugin
 seoDescription: Manage Figma variables and styles at scale by linking, merging, and cleaning design tokens across files.
 tags:
