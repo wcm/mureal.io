@@ -27,10 +27,10 @@ banners:
       url: /banners/wireframe-designer-3.png
       alt: Wireframe Designer preview
     - type: youtube
-      url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      url: https://youtu.be/J2Stm29hEKE
 ---
 
-Instantly generate and refine mobile, desktop, and mindmap outputs in Figma for lightning-fast brainstorming and iteration.
+Instantly generate mobile, desktop, and mindmap wireframes in Figma for lightning-fast brainstorming and iteration.
 
 ## Features Overview
 
@@ -63,7 +63,7 @@ Instantly generate and refine mobile, desktop, and mindmap outputs in Figma for 
 Use the context panel (top-left icon) to describe your product and audience.
 
 Example:
-`Rello is a fashion e-commerce platform primarily used by females aged 40-60.`
+`Mureal is a premium fashion e-commerce platform for style-conscious young women, offering curated collections, personalized outfit recommendations, detailed product pages, and a confident, easy-to-navigate shopping experience.`
 
 ### 2. Start with a Clear Task
 
@@ -95,4 +95,4 @@ Example:
 
 ## Issues or Feature Requests
 
-Email: [contact@mureal.io](mailto:contact@describe.design)
+Email: [contact@mureal.io](mailto:contact@mureal.io)
