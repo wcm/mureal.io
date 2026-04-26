@@ -17,17 +17,17 @@ tags:
     - style: likes
       text: 4.9k
 banners:
-    - type: image
-      url: /banners/wireframe-designer-1.png
-      alt: Wireframe Designer preview
+    - type: youtube
+      url: https://youtu.be/J2Stm29hEKE
     - type: image
       url: /banners/wireframe-designer-2.png
       alt: Wireframe Designer preview
     - type: image
       url: /banners/wireframe-designer-3.png
       alt: Wireframe Designer preview
-    - type: youtube
-      url: https://youtu.be/J2Stm29hEKE
+    - type: image
+      url: /banners/wireframe-designer-1.png
+      alt: Wireframe Designer preview
 ---
 
 Instantly generate mobile, desktop, and mindmap wireframes in Figma for lightning-fast brainstorming and iteration.
