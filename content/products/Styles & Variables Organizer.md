@@ -58,13 +58,6 @@ Styles and Variables Organizer helps teams manage design systems and design toke
 - Automatically merge all available styles and variables with a single click.
 - Keep your design system and token library clean over time.
 
-## Practical Token Operation Examples
-
-- Link all matching colors in a file to a color variable.
-- Link all corner radius values in a file to number variables.
-- Merge different styles with the same value into one shared style.
-- Use your imagination!
-
 ## Supported Variable and Style Types
 
 - Color Variables
@@ -73,6 +66,30 @@ Styles and Variables Organizer helps teams manage design systems and design toke
 - Color Styles
 - Text Styles
 - Effect Styles
+
+## Practical Token Operation Examples
+
+- Link all matching colors in a file to a color variable.
+- Link all corner radius values in a file to number variables.
+- Merge different styles with the same value into one shared style.
+- Use your imagination!
+
+## Detailed Instructions
+
+![Instructions image](/inlines/svo-1.svg)
+
+![Instructions image](/inlines/svo-2.svg)
+
+### Properties Supported for Each Variable Type
+
+![Instructions image](/inlines/svo-3.svg)
+
+### Special Things to Notice
+
+- All nested layers inside boolean operations(union, subtract, intersect, exclude) are skipped.
+- Masks are ignored for paint/color/effect detection. Mask layers are skipped when recording fills, strokes, and effects.
+- Only visible colors and effects count. Hidden fills, hidden strokes, and hidden effects are excluded from results. Results are grouped by actual visual value. 
+- Text style detection skips mixed text properties. If a text layer has mixed font size, font, line height, letter spacing, etc., it is skipped for text style grouping.
 
 ## Issues or Feature Requests
 
