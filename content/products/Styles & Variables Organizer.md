@@ -43,8 +43,8 @@ Styles and Variables Organizer helps teams manage design systems and design toke
 
 ### 1. Design Token Usage Assessment
 
-- Assess token usage by variable modes to understand what is actually adopted.
-- Filter variable modes and properties to focus on the right migration scope.
+- Assess token usage amounts to understand what is actually adopted.
+- Filter variable properties to focus on the right migration scope.
 
 ### 2. Select, Link, Merge, and Bulk Apply Tokens
 
