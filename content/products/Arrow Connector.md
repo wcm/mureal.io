@@ -24,17 +24,14 @@ banners:
 
 Draw smooth and beautiful connectors that stay attached as your design evolves.
 
-## Why Arrow Connector
-
-- Auto-tracks element positions as layers move.
-- Keeps flows clean and accurate.
-- Simple, fast, and free forever.
+## Simple, fast, and free forever.
 
 ## Key Features
 
 - Select two elements and click **Link** to draw an arrow.
 - Choose the arrow binding position with one click.
 - Preserve your default arrow style automatically.
+- **Easy command and menu actions.**
 - Select one or multiple arrows to update styles quickly.
 - Lock or unlock all arrows to avoid accidental edits.
 
